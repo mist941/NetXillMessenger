@@ -1,5 +1,5 @@
 import './styles/index.scss'
-import {Planet} from "./Planet";
+import {Planet} from "./scripts/Planet";
 
 interface Animal {
   name: string,

@@ -8,6 +8,7 @@ module.exports = {
   mode: isDevMode ? 'development' : 'production',
   devtool: isDevMode ? 'source-map' : false,
   target: isDevMode ? 'web' : 'browserslist',
+
   module: {
     rules: [
       {
@@ -17,15 +18,18 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
             options: {},
           },
-          "css-loader",
-          "postcss-loader",
-          "sass-loader",
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
         ],
       },
       {
         test: /\.(js|jsx|tsx|ts)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: [
+          'babel-loader',
+          'eslint-loader',
+        ]
       },
     ],
   },
