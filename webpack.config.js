@@ -1,5 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin')
+const TerserWebpackPlugin = require('terser-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 let isDevMode = process.env.NODE_ENV !== 'production'
 
@@ -8,6 +12,16 @@ module.exports = {
   mode: isDevMode ? 'development' : 'production',
   devtool: isDevMode ? 'source-map' : false,
   target: isDevMode ? 'web' : 'browserslist',
+
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    },
+    minimizer: !isDevMode ? [
+      new OptimizeCssAssetWebpackPlugin(),
+      new TerserWebpackPlugin()
+    ] : [],
+  },
 
   module: {
     rules: [
@@ -31,13 +45,36 @@ module.exports = {
           'eslint-loader',
         ]
       },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'assets/images',
+        },
+      },
+      {
+        test: /\.(ttf|woff|woff2|eot)$/,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'assets/fonts'
+        }
+      }
     ],
   },
 
   plugins: [
     new MiniCssExtractPlugin(),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/favicon.ico',
+          to: ''
+        }
+      ]
     }),
   ],
 
