@@ -1,7 +1,7 @@
 {
-  "name": "net-xill-messenger",
+  "name": "NetXillMessenger",
   "version": "1.0.0",
-  "description": "communication application",
+  "description": "communication_application",
   "scripts": {
     "start": "webpack serve --config webpack/webpack.config.js --env env=dev",
     "build": "webpack --config webpack/webpack.config.js --env env=prod",
@@ -14,6 +14,9 @@
     "TypeScript",
     "Webpack 5"
   ],
+  "engines": {
+    "node": ">=15.13.0"
+  },
   "author": "Ivan Statkevich",
   "license": "MIT",
   "dependencies": {
