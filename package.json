@@ -4,7 +4,7 @@
   "description": "communication_application",
   "scripts": {
     "start": "webpack serve --config webpack/webpack.config.js --env env=dev",
-    "build": "webpack --config webpack/webpack.config.js --env env=prod",
+    "build": "webpack --config webpack/webpack.config.js --env env=production",
     "lint": "eslint --fix \\\\\\\"client/**/*.{js,jsx,ts,tsx,json}\\\\\\\"",
     "format": "prettier --write \\\\\\\"client/**/*.{js,jsx,ts,tsx,json,css,scss,md}\\\\\\\"",
     "server": "nodemon server.js"
@@ -15,7 +15,8 @@
     "Webpack 5"
   ],
   "engines": {
-    "node": ">=15.13.0"
+    "node": ">=15.13.0",
+    "npm": ">=7.7.6"
   },
   "author": "Ivan Statkevich",
   "license": "MIT",
