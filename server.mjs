@@ -7,6 +7,7 @@ async function startServer() {
   await loaders(app);
 
   app.listen(config.port, () => {
+    console.log(config.port);
     console.log("You are connected!");
   });
 }

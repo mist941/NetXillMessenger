@@ -10,8 +10,9 @@ export default (app) => {
   app.use(cors());
   app.use(express.static(path.join(__dirname, 'build')));
   app.use(bodyParser.json());
-  app.get('/', (req, res) => {
+  app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build/index.html'));
   });
-  app.use(config.api.prefix, routes);
+
+  app.use(config.api.prefix, routes());
 }
