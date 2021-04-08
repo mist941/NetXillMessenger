@@ -7,7 +7,7 @@
     "build": "webpack --config webpack/webpack.config.js --env env=prod",
     "lint": "eslint --fix \\\\\\\"client/**/*.{js,jsx,ts,tsx,json}\\\\\\\"",
     "format": "prettier --write \\\\\\\"client/**/*.{js,jsx,ts,tsx,json,css,scss,md}\\\\\\\"",
-    "server": "nodemon server.js"
+    "server": "nodemon server.mjs"
   },
   "keywords": [
     "React",
