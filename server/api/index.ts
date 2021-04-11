@@ -1,6 +1,6 @@
 import {Router} from "express";
-import main from "./routes/main.mjs";
-import auth from "./routes/auth.mjs";
+import main from "./routes/main";
+import auth from "./routes/auth";
 
 export default () => {
   const router = Router();

@@ -1,11 +1,11 @@
 import cors from "cors";
 import path from "path";
 import bodyParser from "body-parser";
-import config from '../config/index.mjs';
-import routes from '../api/index.mjs';
-import express from "express";
+import config from '../config';
+import routes from '../api';
+import express, {Application} from "express";
 
-export default (app) => {
+export default (app: Application) => {
   const __dirname = path.resolve();
   app.use(cors());
   app.use(express.static(path.join(__dirname, 'build')));
