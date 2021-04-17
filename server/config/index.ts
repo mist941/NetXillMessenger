@@ -11,6 +11,6 @@ export default {
   },
   SERVER_ROOT_URI: process.env.production ? 'https://netxillmessenger.herokuapp.com/' : 'http://localhost:3000/',
   CLIENT_ROOT_URI: process.env.production ? 'https://netxillmessenger.herokuapp.com/' : 'http://localhost:8080/',
-  CLIENT_PATH: process.env.prod ? 'build/index.html' : 'client/index.html',
+  CLIENT_PATH: process.env.production ? 'build/index.html' : 'client/index.html',
   JWT_SECRET: 'eyJhbGciOiJIUzI1NiJ9.eyJDcmVhdGVkQXQiOiIyMDIxLTA0LTE3VDE1OjAzOjIzLjA4NloiLCJEZWxldGVkQXQiOiIyMDIxLTA0LTE3VDE1OjAzOjIzLjA4NloifQ.AeAQBs-0uuKtBO8Q70-9EGj12TYga2l1C2cMnK49jlM',
 };
