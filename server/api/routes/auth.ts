@@ -1,12 +1,9 @@
 import {Router} from 'express';
-import Auth from '../controllers/auth';
+import AuthController from '../controllers/AuthController';
 
 export default (router: Router) => {
-  const auth = new Auth();
+  const authController = new AuthController();
 
-  router.get('/register', auth.register);
-  router.get('/login', auth.login);
-  router.get('/auth/google/url', auth.getGoogleUrl);
-  router.get('/auth/google/redirect', auth.redirectGoogle);
-  router.get('/auth/google/userdata', auth.getGoogleUser);
+  router.get('/register', authController.register);
+  router.get('/login', authController.login);
 }
