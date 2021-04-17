@@ -1,7 +1,14 @@
 export default {
-  port: process.env.PORT || 3000,
-  api: {
-    prefix: '/api',
+  PORT: process.env.PORT || 3000,
+  API: {
+    PREFIX: '/api',
   },
-  databaseURL: 'mongodb+srv://ivan_dev:rFPXg6f8HVS0rNce@netxildb.f7dhr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+  DATABASE_URL: 'mongodb+srv://ivan_dev:rFPXg6f8HVS0rNce@netxildb.f7dhr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+  GOOGLE: {
+    GOOGLE_CLIENT_ID: '15920841265-21h9i95u2gqfp4h3lqs5o2spmijqrluh.apps.googleusercontent.com',
+    GOOGLE_CLIENT_SECRET: '8rnedKZqxX_O3iigb9tqfGu2'
+  },
+  SERVER_ROOT_URI: process.env.prod ? 'https://netxillmessenger.herokuapp.com/' : 'http://localhost:3000/',
+  CLIENT_ROOT_URI: process.env.prod ? 'https://netxillmessenger.herokuapp.com/' : 'http://localhost:8080/',
+  CLIENT_PATH: process.env.prod ? 'build/index.html' : 'client/index.html',
 };
