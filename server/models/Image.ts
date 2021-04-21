@@ -2,15 +2,15 @@ import mongoose from 'mongoose';
 import {Image} from "../interfaces/Image";
 
 const Image = new mongoose.Schema({
-  image_url: {
+  imageUrl: {
     type: String,
     required: true,
   },
-  image_mini_url: {
+  imageMiniUrl: {
     type: String,
     required: true,
   },
-  created_ar: {
+  createdAt: {
     type: Date,
     default: Date.now,
   },

@@ -3,12 +3,19 @@ import {Image} from './Image';
 export interface User {
   id: string,
   name: string,
-  last_name: string,
-  user_name: string,
+  lastName: string,
+  userName: string,
   email: string,
   password: string,
-  created_at: string,
-  deleted_at: string,
-  updated_at: string,
+  createdAt: string,
+  deletedAt: string,
+  updatedAt: string,
   userImage: Image,
+  salt: string,
+}
+
+export interface UserDTO {
+  userName: string,
+  email: string,
+  password: string,
 }

@@ -1,10 +1,10 @@
 import {Router} from "express";
-import auth from "./routes/auth";
+import defaultAuth from "./routes/defaultAuth";
 import googleAuth from "./routes/googleAuth";
 
 export default () => {
   const router = Router();
-  auth(router);
+  defaultAuth(router);
   googleAuth(router);
 
   return router;
