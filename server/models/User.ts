@@ -1,10 +1,10 @@
-import mongoose, {Types} from 'mongoose';
+import mongoose from 'mongoose';
 import {User} from "../interfaces/User";
 
 const User = new mongoose.Schema({
   name: String,
-  last_name: String,
-  user_name: {
+  lastName: String,
+  userName: {
     type: String,
     unique: true,
     required: true,
@@ -18,21 +18,21 @@ const User = new mongoose.Schema({
     type: String,
     required: true,
   },
-  created_at: {
+  createdAt: {
     type: Date,
     default: Date.now,
   },
-  deleted_at: {
+  deletedAt: {
     type: Date,
   },
-  updated_at: {
+  updatedAt: {
     type: Date,
     default: Date.now,
   },
-  userImage: {
-    type: Types.ObjectId,
+  userImage: [{
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Image',
-  },
+  }],
 });
 
 export default mongoose.model<User & mongoose.Document>('User', User);

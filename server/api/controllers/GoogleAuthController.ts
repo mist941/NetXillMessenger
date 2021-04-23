@@ -1,10 +1,10 @@
 import {Request, Response} from "express";
-import GoogleAuth from "../../services/GoogleAuth";
+import GoogleAuthService from "../../services/GoogleAuthService";
 import config from "../../config";
 
 export default class GoogleAuthController {
   getGoogleUrl(req: Request, res: Response) {
-    const googleAuth = new GoogleAuth({
+    const googleAuth = new GoogleAuthService({
       redirectUri: `${config.SERVER_ROOT_URI}${config.API.GOOGLE_REDIRECT}`,
       clientId: config.GOOGLE.GOOGLE_CLIENT_ID,
       clientSecret: '',
@@ -14,7 +14,7 @@ export default class GoogleAuthController {
 
   async redirectGoogle(req: Request, res: Response) {
     const code = req.query.code as string;
-    const googleAuth = new GoogleAuth({
+    const googleAuth = new GoogleAuthService({
       redirectUri: `${config.SERVER_ROOT_URI}${config.API.GOOGLE_REDIRECT}`,
       clientId: config.GOOGLE.GOOGLE_CLIENT_ID,
       clientSecret: config.GOOGLE.GOOGLE_CLIENT_SECRET,

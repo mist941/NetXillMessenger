@@ -5,13 +5,13 @@ import argon2 from 'argon2';
 import jwt from 'jsonwebtoken';
 import config from "../config";
 
-export default class Auth {
+export default class AuthService {
   constructor(
     private userModel: Model<User & Document>
   ) {
   }
 
-  private async register(userDTO: UserDTO): Promise<{ user: User; token: string }> {
+  public async register(userDTO: UserDTO): Promise<{ user: User; token: string }> {
     try {
       const salt = randomBytes(32);
       const hashedPassword = await argon2.hash(userDTO.password, {salt});
@@ -33,7 +33,7 @@ export default class Auth {
     }
   }
 
-  public async SignIn(email: string, password: string): Promise<{ user: User; token: string }> {
+  public async signIn(email: string, password: string): Promise<{ user: User; token: string }> {
     const userRecord = await this.userModel.findOne({ email });
     if (!userRecord) {
       throw new Error('User not registered');

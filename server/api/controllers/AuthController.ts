@@ -1,11 +1,18 @@
 import {Request, Response} from "express";
+import AuthService from "../../services/AuthService";
+import User from "../../models/User";
 
 export default class AuthController {
-  register(req: Request, res: Response) {
-    res.send('register');
+  async register(req: Request, res: Response) {
+    const authService = new AuthService(User);
+    const {user, token} = await authService.register(req.body);
+    return res.status(200).json({user, token});
   }
 
-  login(req: Request, res: Response) {
-    res.send('login');
+  async login(req: Request, res: Response) {
+    const {email, password} = req.body;
+    const authService = new AuthService(User);
+    const {user, token} = await authService.signIn(email, password);
+    return res.status(200).json({user, token});
   }
 }

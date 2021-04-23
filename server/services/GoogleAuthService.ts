@@ -2,7 +2,7 @@ import {GoogleAuthParams, GoogleToken, GoogleUser} from "../types/google";
 import * as querystring from "querystring";
 import fetch from "node-fetch";
 
-export default class GoogleAuth {
+export default class GoogleAuthService {
   private readonly redirectUri: string;
   private readonly clientId: string;
   private readonly clientSecret: string;
