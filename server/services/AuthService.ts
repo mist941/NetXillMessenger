@@ -1,13 +1,17 @@
 import {Model, Document} from "mongoose";
 import {User, UserDTO} from "../interfaces/User";
 import {randomBytes} from "crypto";
-import argon2 from 'argon2';
-import jwt from 'jsonwebtoken';
+import argon2 from "argon2";
+import jwt from "jsonwebtoken";
 import config from "../config";
+import {Inject, Service} from "typedi";
+import MailerService from "./MailerService";
 
+@Service()
 export default class AuthService {
   constructor(
-    private userModel: Model<User & Document>
+    @Inject('userModel') private userModel: Model<User & Document>,
+    private mailer: MailerService,
   ) {
   }
 
@@ -24,6 +28,7 @@ export default class AuthService {
       if (!userRecord) {
         throw new Error('User cannot be created');
       }
+      await this.mailer.SendWelcomeEmail(userRecord.email);
       const user = userRecord.toObject();
       Reflect.deleteProperty(user, 'password');
       Reflect.deleteProperty(user, 'salt');

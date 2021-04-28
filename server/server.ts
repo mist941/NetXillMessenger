@@ -1,6 +1,7 @@
-import express from 'express';
-import config from './config/index';
-import loaders from './loaders/index';
+import express from "express";
+import config from "./config/index";
+import "reflect-metadata";
+import loaders from "./loaders/index";
 
 
 async function startServer() {

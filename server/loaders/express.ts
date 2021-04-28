@@ -1,10 +1,10 @@
-import cors from 'cors';
-import path from 'path';
-import bodyParser from 'body-parser';
-import config from '../config';
-import routes from '../api';
-import express, {Application} from 'express';
-import cookieParser from 'cookie-parser';
+import cors from "cors";
+import path from "path";
+import bodyParser from "body-parser";
+import config from "../config";
+import routes from "../api";
+import express, {Application} from "express";
+import cookieParser from "cookie-parser";
 
 export default (app: Application) => {
   const __dirname = path.resolve();

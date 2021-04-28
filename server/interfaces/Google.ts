@@ -1,9 +1,3 @@
-export interface GoogleAuthParams {
-  redirectUri: string,
-  clientId: string,
-  clientSecret: string,
-}
-
 export interface GoogleToken {
   access_token: string;
   expires_in: number;

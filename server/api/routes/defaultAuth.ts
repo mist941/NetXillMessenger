@@ -1,6 +1,6 @@
-import {Router} from 'express';
-import AuthController from '../controllers/AuthController';
-import {celebrate, Joi} from 'celebrate';
+import {Router} from "express";
+import AuthController from "../controllers/AuthController";
+import {celebrate, Joi} from "celebrate";
 
 export default (router: Router) => {
   const authController = new AuthController();

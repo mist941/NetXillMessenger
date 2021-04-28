@@ -1,4 +1,4 @@
-import {Router} from 'express';
+import {Router} from "express";
 import GoogleAuthController from "../controllers/GoogleAuthController";
 
 export default (router: Router) => {

@@ -1,24 +1,17 @@
 import {Request, Response} from "express";
 import GoogleAuthService from "../../services/GoogleAuthService";
 import config from "../../config";
+import {Container} from "typedi";
 
 export default class GoogleAuthController {
   getGoogleUrl(req: Request, res: Response) {
-    const googleAuth = new GoogleAuthService({
-      redirectUri: `${config.SERVER_ROOT_URI}${config.API.GOOGLE_REDIRECT}`,
-      clientId: config.GOOGLE.GOOGLE_CLIENT_ID,
-      clientSecret: '',
-    });
+    const googleAuth = Container.get(GoogleAuthService);
     return res.send(googleAuth.getGoogleAuthUrl());
   }
 
   async redirectGoogle(req: Request, res: Response) {
     const code = req.query.code as string;
-    const googleAuth = new GoogleAuthService({
-      redirectUri: `${config.SERVER_ROOT_URI}${config.API.GOOGLE_REDIRECT}`,
-      clientId: config.GOOGLE.GOOGLE_CLIENT_ID,
-      clientSecret: config.GOOGLE.GOOGLE_CLIENT_SECRET,
-    });
+    const googleAuth =  Container.get(GoogleAuthService);
     const {access_token, id_token} = await googleAuth.getToken(code, 'https://oauth2.googleapis.com/token');
     const googleUser = await googleAuth.getUser(access_token, id_token)
     res.cookie('google_user', googleUser, {

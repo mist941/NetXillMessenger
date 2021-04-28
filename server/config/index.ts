@@ -13,4 +13,8 @@ export default {
   CLIENT_ROOT_URI: process.env.NODE_ENV = 'production' ? 'https://netxillmessenger.herokuapp.com/' : 'http://localhost:8080/',
   CLIENT_PATH: process.env.prod ? 'build/index.html' : 'client/index.html',
   JWT_SECRET: 'eyJhbGciOiJIUzI1NiJ9.eyJDcmVhdGVkQXQiOiIyMDIxLTA0LTE3VDE1OjAzOjIzLjA4NloiLCJEZWxldGVkQXQiOiIyMDIxLTA0LTE3VDE1OjAzOjIzLjA4NloifQ.AeAQBs-0uuKtBO8Q70-9EGj12TYga2l1C2cMnK49jlM',
+  MAILGUN: {
+    DOMAIN: 'sandbox2f8bf118a3cd498bbefe3b8353aeaadb.mailgun.org',
+    API_KEY: 'eb56162ca2cee333de898cb37583b188-4b1aa784-87818625',
+  },
 };

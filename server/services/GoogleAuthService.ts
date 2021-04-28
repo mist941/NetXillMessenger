@@ -1,16 +1,16 @@
-import {GoogleAuthParams, GoogleToken, GoogleUser} from "../types/google";
+import { GoogleToken, GoogleUser} from "../interfaces/Google";
 import * as querystring from "querystring";
 import fetch from "node-fetch";
+import {Service} from "typedi";
+import config from "../config";
 
+@Service()
 export default class GoogleAuthService {
-  private readonly redirectUri: string;
-  private readonly clientId: string;
-  private readonly clientSecret: string;
-
-  constructor(params: GoogleAuthParams) {
-    this.redirectUri = params.redirectUri;
-    this.clientId = params.clientId;
-    this.clientSecret = params.clientSecret;
+  constructor(
+    private redirectUri: string = `${config.SERVER_ROOT_URI}${config.API.GOOGLE_REDIRECT}`,
+    private clientId: string = config.GOOGLE.GOOGLE_CLIENT_ID,
+    private clientSecret: string = config.GOOGLE.GOOGLE_CLIENT_SECRET,
+  ) {
   }
 
   getGoogleAuthUrl(): string {
