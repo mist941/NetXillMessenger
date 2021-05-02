@@ -1,0 +1,10 @@
+@function get-font-url($font-name) {
+  @return '/client/assets/fonts/' + $font-name + '.ttf';
+}
+
+@function calc-font-size($f-min, $f-max, $w-min, $w-max) {
+  $k: ($f-max - $f-min)/ ($w-max - $w-min);
+  $b: $f-min - $k * $w-min;
+
+  @return calc(#{$k} * 100vw + #{$b});
+}

@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "ESNext",
+    "target": "es5",
+    "module": "commonjs",
     "lib": [
-      "ES2020",
-      "DOM",
-      "ESNext"
+      "es6",
+      "es2015",
+      "es2016",
+      "es2018",
+      "es2019",
+      "es2020",
+      "dom"
     ],
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -17,8 +21,5 @@
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true
-  },
-  "include": [
-    "/client/**/*"
-  ]
+  }
 }

@@ -1,0 +1,28 @@
+@mixin font-face($font-name, $style, $weight) {
+  $src: get-font-url($font-name);
+
+  @font-face {
+    font-family: $font-name;
+    font-style: $style;
+    font-weight: $weight;
+    src: url($src);
+  }
+}
+
+@mixin font-size($f-min, $f-max, $w-min, $w-max) {
+  font-size: $f-min;
+
+  @media (min-width: $w-min) {
+    font-size: calc-font-size($f-min, $f-max, $w-min, $w-max);
+  }
+
+  @media (min-width: $w-max) {
+    font-size: $f-max;
+  }
+}
+
+@mixin media($min, $max) {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}

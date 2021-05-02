@@ -9,7 +9,7 @@ import cookieParser from "cookie-parser";
 export default (app: Application) => {
   const __dirname = path.resolve();
   app.use(cors());
-  app.use(express.static(path.join(__dirname, 'build')));
+  app.use(express.static(path.join(__dirname, 'dist')));
   app.use(bodyParser.json());
   app.use(cookieParser());
   app.get('/', (req, res) => {
